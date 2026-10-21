@@ -1,1 +1,1097 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>PDMAS — Questionnaire de caractérisation</title>
+    <style>
+      :root {
+        --bg:#f5f7fb;
+        --card:#fff;
+        --ink:#182230;
+        --muted:#667085;
+        --line:#d9e0ea;
+        --blue:#2855a6;
+        --teal:#087f8c;
+        --purple:#6d3bb3;
+      }
+      * {
+        box-sizing:border-box;
+      }
+      body {
+        margin:0;
+        background:var(--bg);
+        color:var(--ink);
+        font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      }
+      .wrap {
+        max-width:1100px;
+        margin:auto;
+        padding:28px 20px 60px;
+      }
+      .hero {
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:24px;
+        margin-bottom:22px;
+      }
+      .hero h1 {
+        margin:0 0 8px;
+        font-size:28px;
+      }
+      .hero p {
+        margin:6px 0;
+        color:var(--muted);
+      }
+      .level {
+        margin:26px 0;
+      }
+      .level>h2 {
+        padding:14px 18px;
+        border-radius:12px;
+        color:#fff;
+        margin:0 0 16px;
+      }
+      .level.l1>h2 {
+        background:var(--blue);
+      }
+      .level.l2>h2 {
+        background:var(--teal);
+      }
+      .level.l3>h2 {
+        background:var(--purple);
+      }
+      .section {
+        background:var(--card);
+        border:1px solid var(--line);
+        border-radius:14px;
+        margin:14px 0;
+        padding:18px;
+      }
+      .section h3 {
+        margin:0 0 14px;
+        font-size:20px;
+      }
+      .item {
+        border-top:1px solid var(--line);
+        padding:16px 0;
+      }
+      .item:first-of-type {
+        border-top:0;
+      }
+      .item h4 {
+        margin:0 0 12px;
+        font-size:16px;
+      }
+      .question {
+        padding:10px 12px;
+        background:#f8fafc;
+        border-radius:10px;
+        margin:10px 0;
+      }
+      .qtext {
+        font-weight:650;
+        margin-bottom:7px;
+      }
+      .options {
+        display:grid;
+        gap:5px;
+      }
+      .options label {
+        display:flex;
+        gap:8px;
+        align-items:flex-start;
+      }
+      .toolbar {
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        margin-top:18px;
+      }
+      button {
+        border:0;
+        border-radius:9px;
+        padding:10px 14px;
+        font-weight:650;
+        cursor:pointer;
+        background:#e9eef6;
+        color:#223;
+      }
+      button.primary {
+        background:#1d4ed8;
+        color:#fff;
+      }
+      .note {
+        font-size:13px;
+        color:var(--muted);
+      }
+      textarea {
+        width:100%;
+        min-height:72px;
+        border:1px solid var(--line);
+        border-radius:8px;
+        padding:8px;
+        margin-top:8px;
+      }
+      details {
+        margin-top:8px;
+      }
+      .badge {
+        font-size:12px;
+        font-weight:700;
+        color:#475467;
+        background:#eef2f6;
+        padding:3px 7px;
+        border-radius:999px;
+        margin-right:6px;
+      }
+      @media print {
+        .toolbar {
+          display:none;
+        }
+        body {
+          background:white;
+        }
+        .section,.hero {
+          break-inside:avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <h1>PDMAS — Profiling for Distributing Multi-Agent Systems</h1>
+        <p><strong>Questionnaire de caractérisation orientée distribution</strong></p>
+        <p>Cette interface est une implémentation du protocole PDMAS. Elle aide à renseigner de manière structurée les propriétés du modèle ; elle ne sélectionne pas directement une stratégie de distribution.</p>
+        <p class="note">Les réponses renseignées pour les propriétés constituent, une fois structurées, le profil PDMAS du modèle. Certaines questions peuvent être non applicables selon le modèle étudié.</p>
+      </header>
+      <section class="level l1">
+        <h2>Niveau 1 : Analyse de la composition du modèle</h2>
+        <div class="section">
+          <h3><span class="badge">1.1</span>Agents et rôles dans le modèle</h3>
+          <div class="item">
+            <h4><span class="badge">1.1.1</span>Typologie des agents et spécialisation des rôles</h4>
+            <div class="question">
+              <div class="qtext">Le modèle contient-il différents types d’agents ?</div>
+              <div class="options">
+                <label><input name="q_1_1_1_1" type="radio" value="Oui, clairement distingués par leur rôle ou leur fonction"> <span>Oui, clairement distingués par leur rôle ou leur fonction</span></label>
+                <label><input name="q_1_1_1_1" type="radio" value="Oui, mais avec des rôles partiellement chevauchants"> <span>Oui, mais avec des rôles partiellement chevauchants</span></label>
+                <label><input name="q_1_1_1_1" type="radio" value="Non, les agents sont du même type"> <span>Non, les agents sont du même type</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les agents peuvent-ils être regroupés en familles fonctionnelles ?</div>
+              <div class="options">
+                <label><input name="q_1_1_1_2" type="radio" value="Oui, plusieurs familles distinctes"> <span>Oui, plusieurs familles distinctes</span></label>
+                <label><input name="q_1_1_1_2" type="radio" value="Partiellement, certaines fonctions sont partagées"> <span>Partiellement, certaines fonctions sont partagées</span></label>
+                <label><input name="q_1_1_1_2" type="radio" value="Non, aucun regroupement fonctionnel pertinent"> <span>Non, aucun regroupement fonctionnel pertinent</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les rôles des agents sont-ils fixes au cours de la simulation ?</div>
+              <div class="options">
+                <label><input name="q_1_1_1_3" type="radio" value="Oui, les rôles sont statiques"> <span>Oui, les rôles sont statiques</span></label>
+                <label><input name="q_1_1_1_3" type="radio" value="Non, les rôles évoluent au cours de la simulation"> <span>Non, les rôles évoluent au cours de la simulation</span></label>
+                <label><input name="q_1_1_1_3" type="radio" value="Certains rôles sont fixes, d’autres évoluent"> <span>Certains rôles sont fixes, d’autres évoluent</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_1_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certains agents possèdent-ils des responsabilités particulièrement importantes pour le fonctionnement du modèle ?</div>
+              <div class="options">
+                <label><input name="q_1_1_1_4" type="radio" value="Oui, plusieurs agents"> <span>Oui, plusieurs agents</span></label>
+                <label><input name="q_1_1_1_4" type="radio" value="Oui, un agent particulier"> <span>Oui, un agent particulier</span></label>
+                <label><input name="q_1_1_1_4" type="radio" value="Non, les responsabilités sont réparties"> <span>Non, les responsabilités sont réparties</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_1_4" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Existe-t-il une hiérarchie entre les agents ?</div>
+              <div class="options">
+                <label><input name="q_1_1_1_5" type="radio" value="Oui, une hiérarchie explicite"> <span>Oui, une hiérarchie explicite</span></label>
+                <label><input name="q_1_1_1_5" type="radio" value="Non, les agents sont sur un pied d’égalité"> <span>Non, les agents sont sur un pied d’égalité</span></label>
+                <label><input name="q_1_1_1_5" type="radio" value="Une hiérarchie temporaire ou contextuelle"> <span>Une hiérarchie temporaire ou contextuelle</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_1_5" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">1.1.2</span>Agents centraux et connaissances globales</h4>
+            <div class="question">
+              <div class="qtext">Certains agents disposent-ils d’une vision globale du modèle ?</div>
+              <div class="options">
+                <label><input name="q_1_1_2_1" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_1_1_2_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certains agents coordonnent-ils les actions d’autres agents ?</div>
+              <div class="options">
+                <label><input name="q_1_1_2_2" type="radio" value="Oui, coordination explicite par un ou plusieurs agents"> <span>Oui, coordination explicite par un ou plusieurs agents</span></label>
+                <label><input name="q_1_1_2_2" type="radio" value="Non, la coordination est distribuée"> <span>Non, la coordination est distribuée</span></label>
+                <label><input name="q_1_1_2_2" type="radio" value="Aucune coordination entre agents"> <span>Aucune coordination entre agents</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certains agents collectent-ils ou diffusent-ils des informations pour une part importante des autres agents ?</div>
+              <div class="options">
+                <label><input name="q_1_1_2_3" type="radio" value="Oui, présence d’agents relais ou hubs"> <span>Oui, présence d’agents relais ou hubs</span></label>
+                <label><input name="q_1_1_2_3" type="radio" value="Non, les échanges ne reposent pas sur un agent central"> <span>Non, les échanges ne reposent pas sur un agent central</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_2_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Le fonctionnement du modèle dépend-il fortement d’un agent central ?</div>
+              <div class="options">
+                <label><input name="q_1_1_2_4" type="radio" value="Oui, son indisponibilité affecte fortement le fonctionnement"> <span>Oui, son indisponibilité affecte fortement le fonctionnement</span></label>
+                <label><input name="q_1_1_2_4" type="radio" value="Partiellement, des mécanismes de remplacement ou de redondance existent"> <span>Partiellement, des mécanismes de remplacement ou de redondance existent</span></label>
+                <label><input name="q_1_1_2_4" type="radio" value="Non, son impact est limité"> <span>Non, son impact est limité</span></label>
+                <label><input name="q_1_1_2_4" type="radio" value="Non applicable : aucun agent central"> <span>Non applicable : aucun agent central</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_2_4" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Lorsqu’un rôle central existe, est-il fixe ou dynamique ?</div>
+              <div class="options">
+                <label><input name="q_1_1_2_5" type="radio" value="Fixe"> <span>Fixe</span></label>
+                <label><input name="q_1_1_2_5" type="radio" value="Dynamique"> <span>Dynamique</span></label>
+                <label><input name="q_1_1_2_5" type="radio" value="Non applicable"> <span>Non applicable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_2_5" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">1.1.3</span>Mobilité et localisation des agents</h4>
+            <div class="question">
+              <div class="qtext">Les agents sont-ils localisés dans un espace explicite ?</div>
+              <div class="options">
+                <label><input name="q_1_1_3_1" type="radio" value="Oui, espace physique ou topologique"> <span>Oui, espace physique ou topologique</span></label>
+                <label><input name="q_1_1_3_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les agents peuvent-ils se déplacer ?</div>
+              <div class="options">
+                <label><input name="q_1_1_3_2" type="radio" value="Oui, selon des règles de mobilité définies"> <span>Oui, selon des règles de mobilité définies</span></label>
+                <label><input name="q_1_1_3_2" type="radio" value="Mobilité limitée ou conditionnelle"> <span>Mobilité limitée ou conditionnelle</span></label>
+                <label><input name="q_1_1_3_2" type="radio" value="Non, agents fixes"> <span>Non, agents fixes</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Le comportement d’un agent dépend-il de sa position ?</div>
+              <div class="options">
+                <label><input name="q_1_1_3_3" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_1_1_3_3" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_1_1_3_3" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_3_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Quelle représentation de l’espace est utilisée ?</div>
+              <div class="options">
+                <label><input name="q_1_1_3_4" type="radio" value="Espace continu"> <span>Espace continu</span></label>
+                <label><input name="q_1_1_3_4" type="radio" value="Grille ou maillage discret"> <span>Grille ou maillage discret</span></label>
+                <label><input name="q_1_1_3_4" type="radio" value="Graphe ou réseau"> <span>Graphe ou réseau</span></label>
+                <label><input name="q_1_1_3_4" type="radio" value="Autre"> <span>Autre</span></label>
+                <label><input name="q_1_1_3_4" type="radio" value="Non applicable"> <span>Non applicable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_3_4" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les interactions sont-elles corrélées à la proximité spatiale ou topologique ?</div>
+              <div class="options">
+                <label><input name="q_1_1_3_5" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_1_1_3_5" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_1_1_3_5" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_1_3_5" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h3><span class="badge">1.2</span>Nature des interactions dans le modèle</h3>
+          <div class="item">
+            <h4><span class="badge">1.2.1</span>Fréquence et volume des échanges</h4>
+            <div class="question">
+              <div class="qtext">À quelle fréquence les agents interagissent-ils ou échangent-ils des informations ?</div>
+              <div class="options">
+                <label><input name="q_1_2_1_1" type="radio" value="Très fréquemment (à chaque pas ou presque)"> <span>Très fréquemment (à chaque pas ou presque)</span></label>
+                <label><input name="q_1_2_1_1" type="radio" value="Régulièrement (tous les n pas)"> <span>Régulièrement (tous les n pas)</span></label>
+                <label><input name="q_1_2_1_1" type="radio" value="Rarement ou de manière événementielle"> <span>Rarement ou de manière événementielle</span></label>
+                <label><input name="q_1_2_1_1" type="radio" value="Fréquence irrégulière ou imprévisible"> <span>Fréquence irrégulière ou imprévisible</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_2_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Quel est le volume typique d’information mobilisé lors d’une interaction ?</div>
+              <div class="options">
+                <label><input name="q_1_2_1_2" type="radio" value="Faible : quelques variables ou identifiants"> <span>Faible : quelques variables ou identifiants</span></label>
+                <label><input name="q_1_2_1_2" type="radio" value="Modéré : structures locales ou états de taille moyenne"> <span>Modéré : structures locales ou états de taille moyenne</span></label>
+                <label><input name="q_1_2_1_2" type="radio" value="Élevé : cartes, matrices, historiques ou structures volumineuses"> <span>Élevé : cartes, matrices, historiques ou structures volumineuses</span></label>
+                <label><input name="q_1_2_1_2" type="radio" value="Très variable selon le contexte"> <span>Très variable selon le contexte</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_2_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">1.2.2</span>Criticité des interactions</h4>
+            <div class="question">
+              <div class="qtext">La perte ou l’absence d’une information issue d’une interaction peut-elle modifier le comportement du modèle ?</div>
+              <div class="options">
+                <label><input name="q_1_2_2_1" type="radio" value="Oui, de manière importante"> <span>Oui, de manière importante</span></label>
+                <label><input name="q_1_2_2_1" type="radio" value="Partiellement, selon le type d’interaction"> <span>Partiellement, selon le type d’interaction</span></label>
+                <label><input name="q_1_2_2_1" type="radio" value="Non ou impact négligeable"> <span>Non ou impact négligeable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_2_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certaines interactions sont-elles critiques pour la cohérence ou l’évolution du modèle ?</div>
+              <div class="options">
+                <label><input name="q_1_2_2_2" type="radio" value="Oui, plusieurs interactions"> <span>Oui, plusieurs interactions</span></label>
+                <label><input name="q_1_2_2_2" type="radio" value="Partiellement, selon le contexte"> <span>Partiellement, selon le contexte</span></label>
+                <label><input name="q_1_2_2_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_2_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">1.2.3</span>Structure des interactions</h4>
+            <div class="question">
+              <div class="qtext">Certains agents interagissent-ils significativement plus que d’autres ?</div>
+              <div class="options">
+                <label><input name="q_1_2_3_1" type="radio" value="Oui, de manière structurelle"> <span>Oui, de manière structurelle</span></label>
+                <label><input name="q_1_2_3_1" type="radio" value="Oui, mais seulement durant certaines phases"> <span>Oui, mais seulement durant certaines phases</span></label>
+                <label><input name="q_1_2_3_1" type="radio" value="Non, les interactions sont globalement équilibrées"> <span>Non, les interactions sont globalement équilibrées</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_2_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Quel mode d’interaction domine dans le modèle ?</div>
+              <div class="options">
+                <label><input name="q_1_2_3_2" type="radio" value="Communication directe entre agents"> <span>Communication directe entre agents</span></label>
+                <label><input name="q_1_2_3_2" type="radio" value="Observation d’autres agents"> <span>Observation d’autres agents</span></label>
+                <label><input name="q_1_2_3_2" type="radio" value="Interaction indirecte via l’environnement ou un espace partagé"> <span>Interaction indirecte via l’environnement ou un espace partagé</span></label>
+                <label><input name="q_1_2_3_2" type="radio" value="Combinaison de plusieurs modes"> <span>Combinaison de plusieurs modes</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_2_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h3><span class="badge">1.3</span>Organisation du modèle</h3>
+          <div class="item">
+            <h4><span class="badge">1.3.1</span>Éléments constitutifs du modèle</h4>
+            <div class="question">
+              <div class="qtext">Quels éléments constitutifs sont explicitement identifiables dans le modèle ?</div>
+              <div class="options">
+                <label><input name="q_1_3_1_1" type="radio" value="Agents individuels"> <span>Agents individuels</span></label>
+                <label><input name="q_1_3_1_1" type="radio" value="Groupes ou sous-systèmes fonctionnels"> <span>Groupes ou sous-systèmes fonctionnels</span></label>
+                <label><input name="q_1_3_1_1" type="radio" value="Éléments ou ressources de l’environnement"> <span>Éléments ou ressources de l’environnement</span></label>
+                <label><input name="q_1_3_1_1" type="radio" value="Composants de gestion ou de coordination"> <span>Composants de gestion ou de coordination</span></label>
+                <label><input name="q_1_3_1_1" type="radio" value="Plusieurs de ces catégories"> <span>Plusieurs de ces catégories</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Ces éléments constituent-ils des unités logiques clairement identifiables ?</div>
+              <div class="options">
+                <label><input name="q_1_3_1_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_1_3_1_2" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_1_3_1_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">1.3.2</span>Modularité et couplage</h4>
+            <div class="question">
+              <div class="qtext">Le modèle comporte-t-il des modules fonctionnels identifiables ?</div>
+              <div class="options">
+                <label><input name="q_1_3_2_1" type="radio" value="Oui, clairement définis"> <span>Oui, clairement définis</span></label>
+                <label><input name="q_1_3_2_1" type="radio" value="Oui, mais faiblement formalisés"> <span>Oui, mais faiblement formalisés</span></label>
+                <label><input name="q_1_3_2_1" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_1_3_2_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Quel est le degré de couplage entre ces modules ?</div>
+              <div class="options">
+                <label><input name="q_1_3_2_2" type="radio" value="Faible"> <span>Faible</span></label>
+                <label><input name="q_1_3_2_2" type="radio" value="Modéré"> <span>Modéré</span></label>
+                <label><input name="q_1_3_2_2" type="radio" value="Fort"> <span>Fort</span></label>
+                <label><input name="q_1_3_2_2" type="radio" value="Non applicable"> <span>Non applicable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">1.3.3</span>Structuration en sous-ensembles</h4>
+            <div class="question">
+              <div class="qtext">Le modèle présente-t-il des sous-ensembles pouvant être distingués selon sa structure propre ?</div>
+              <div class="options">
+                <label><input name="q_1_3_3_1" type="radio" value="Oui, plusieurs sous-ensembles clairement identifiables"> <span>Oui, plusieurs sous-ensembles clairement identifiables</span></label>
+                <label><input name="q_1_3_3_1" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_1_3_3_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Selon quels critères ces sous-ensembles peuvent-ils être distingués ?</div>
+              <div class="options">
+                <label><input name="q_1_3_3_2" type="radio" value="Critère spatial"> <span>Critère spatial</span></label>
+                <label><input name="q_1_3_3_2" type="radio" value="Critère topologique"> <span>Critère topologique</span></label>
+                <label><input name="q_1_3_3_2" type="radio" value="Appartenance à un groupe ou une organisation"> <span>Appartenance à un groupe ou une organisation</span></label>
+                <label><input name="q_1_3_3_2" type="radio" value="Plusieurs de ces critères"> <span>Plusieurs de ces critères</span></label>
+                <label><input name="q_1_3_3_2" type="radio" value="Autre"> <span>Autre</span></label>
+                <label><input name="q_1_3_3_2" type="radio" value="Aucun critère évident"> <span>Aucun critère évident</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Ces sous-ensembles sont-ils stables au cours de la simulation ?</div>
+              <div class="options">
+                <label><input name="q_1_3_3_3" type="radio" value="Oui, leur composition reste globalement stable"> <span>Oui, leur composition reste globalement stable</span></label>
+                <label><input name="q_1_3_3_3" type="radio" value="Partiellement, leur composition peut évoluer"> <span>Partiellement, leur composition peut évoluer</span></label>
+                <label><input name="q_1_3_3_3" type="radio" value="Non, ils se reconfigurent fréquemment"> <span>Non, ils se reconfigurent fréquemment</span></label>
+                <label><input name="q_1_3_3_3" type="radio" value="Non applicable"> <span>Non applicable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_1_3_3_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="level l2">
+        <h2>Niveau 2 : Propriétés liées au fonctionnement du modèle</h2>
+        <div class="section">
+          <h3><span class="badge">2.1</span>Dépendances et couplages entre les entités</h3>
+          <div class="item">
+            <h4><span class="badge">2.1.1</span>Dépendances entre entités</h4>
+            <div class="question">
+              <div class="qtext">Le fonctionnement d’une entité dépend-il de l’état ou des actions d’autres entités ?</div>
+              <div class="options">
+                <label><input name="q_2_1_1_1" type="radio" value="Faiblement : entités largement autonomes"> <span>Faiblement : entités largement autonomes</span></label>
+                <label><input name="q_2_1_1_1" type="radio" value="Modérément : dépendances ponctuelles ou contextuelles"> <span>Modérément : dépendances ponctuelles ou contextuelles</span></label>
+                <label><input name="q_2_1_1_1" type="radio" value="Fortement : dépendances fréquentes ou déterminantes"> <span>Fortement : dépendances fréquentes ou déterminantes</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_1_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les dépendances impliquent-elles des échanges fréquents ou importants ?</div>
+              <div class="options">
+                <label><input name="q_2_1_1_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_2_1_1_2" type="radio" value="Modérément ou selon le contexte"> <span>Modérément ou selon le contexte</span></label>
+                <label><input name="q_2_1_1_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_1_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.1.2</span>Degré d’autonomie des entités</h4>
+            <div class="question">
+              <div class="qtext">Les entités peuvent-elles progresser pendant un certain temps sans information provenant des autres ?</div>
+              <div class="options">
+                <label><input name="q_2_1_2_1" type="radio" value="Oui, largement"> <span>Oui, largement</span></label>
+                <label><input name="q_2_1_2_1" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_2_1_2_1" type="radio" value="Non, dépendance forte"> <span>Non, dépendance forte</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_1_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les entités accèdent-elles fréquemment à des données ou états produits par d’autres entités ?</div>
+              <div class="options">
+                <label><input name="q_2_1_2_2" type="radio" value="Oui, très fréquemment"> <span>Oui, très fréquemment</span></label>
+                <label><input name="q_2_1_2_2" type="radio" value="Occasionnellement"> <span>Occasionnellement</span></label>
+                <label><input name="q_2_1_2_2" type="radio" value="Rarement ou jamais"> <span>Rarement ou jamais</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_1_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.1.3</span>Dépendances temporelles entre les entités</h4>
+            <div class="question">
+              <div class="qtext">Certaines dépendances imposent-elles qu’une information ou une action soit disponible avant qu’une autre puisse avoir lieu ?</div>
+              <div class="options">
+                <label><input name="q_2_1_3_1" type="radio" value="Oui, fréquemment"> <span>Oui, fréquemment</span></label>
+                <label><input name="q_2_1_3_1" type="radio" value="Partiellement ou dans certains cas"> <span>Partiellement ou dans certains cas</span></label>
+                <label><input name="q_2_1_3_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_1_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certaines interactions imposent-elles un ordre logique entre événements ?</div>
+              <div class="options">
+                <label><input name="q_2_1_3_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_2_1_3_2" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_2_1_3_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_1_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h3><span class="badge">2.2</span>Ressources partagées et accès concurrents</h3>
+          <div class="item">
+            <h4><span class="badge">2.2.1</span>Ressources partagées</h4>
+            <div class="question">
+              <div class="qtext">Plusieurs agents ou entités accèdent-ils aux mêmes ressources du modèle ?</div>
+              <div class="options">
+                <label><input name="q_2_2_1_1" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_2_2_1_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_2_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Quels types de ressources sont concernés ?</div>
+              <div class="options">
+                <label><input name="q_2_2_1_2" type="radio" value="Zones ou cellules de l’environnement"> <span>Zones ou cellules de l’environnement</span></label>
+                <label><input name="q_2_2_1_2" type="radio" value="Objets ou entités modifiés par plusieurs agents"> <span>Objets ou entités modifiés par plusieurs agents</span></label>
+                <label><input name="q_2_2_1_2" type="radio" value="Données ou états partagés"> <span>Données ou états partagés</span></label>
+                <label><input name="q_2_2_1_2" type="radio" value="Plusieurs catégories"> <span>Plusieurs catégories</span></label>
+                <label><input name="q_2_2_1_2" type="radio" value="Non applicable"> <span>Non applicable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_2_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.2.2</span>Accès concurrents</h4>
+            <div class="question">
+              <div class="qtext">Plusieurs agents peuvent-ils accéder simultanément à une même ressource ?</div>
+              <div class="options">
+                <label><input name="q_2_2_2_1" type="radio" value="Oui, fréquemment"> <span>Oui, fréquemment</span></label>
+                <label><input name="q_2_2_2_1" type="radio" value="Oui, occasionnellement"> <span>Oui, occasionnellement</span></label>
+                <label><input name="q_2_2_2_1" type="radio" value="Rarement ou jamais"> <span>Rarement ou jamais</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_2_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">La fréquence de ces accès varie-t-elle au cours de la simulation ?</div>
+              <div class="options">
+                <label><input name="q_2_2_2_2" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_2_2_2_2" type="radio" value="Modérément"> <span>Modérément</span></label>
+                <label><input name="q_2_2_2_2" type="radio" value="Non"> <span>Non</span></label>
+                <label><input name="q_2_2_2_2" type="radio" value="Non applicable"> <span>Non applicable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_2_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.2.3</span>Contrôle des modifications et conflits potentiels</h4>
+            <div class="question">
+              <div class="qtext">Des accès simultanés non coordonnés peuvent-ils produire des effets différents de ceux attendus par le modèle ?</div>
+              <div class="options">
+                <label><input name="q_2_2_3_1" type="radio" value="Oui, effets critiques ou incohérences majeures"> <span>Oui, effets critiques ou incohérences majeures</span></label>
+                <label><input name="q_2_2_3_1" type="radio" value="Oui, effets anormaux mais limités"> <span>Oui, effets anormaux mais limités</span></label>
+                <label><input name="q_2_2_3_1" type="radio" value="Non, pas d’effet notable"> <span>Non, pas d’effet notable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_2_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Le résultat dépend-il de l’ordre dans lequel plusieurs actions affectent une même ressource ?</div>
+              <div class="options">
+                <label><input name="q_2_2_3_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_2_2_3_2" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_2_2_3_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_2_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h3><span class="badge">2.3</span>Cohérence et contraintes temporelles</h3>
+          <div class="item">
+            <h4><span class="badge">2.3.1</span>Cohérence des données partagées</h4>
+            <div class="question">
+              <div class="qtext">Quel niveau de cohérence des données est nécessaire au fonctionnement du modèle ?</div>
+              <div class="options">
+                <label><input name="q_2_3_1_1" type="radio" value="Cohérence forte : les informations doivent être immédiatement cohérentes"> <span>Cohérence forte : les informations doivent être immédiatement cohérentes</span></label>
+                <label><input name="q_2_3_1_1" type="radio" value="Cohérence causale : l’ordre logique doit être préservé"> <span>Cohérence causale : l’ordre logique doit être préservé</span></label>
+                <label><input name="q_2_3_1_1" type="radio" value="Cohérence différée acceptable : un décalage temporaire est toléré"> <span>Cohérence différée acceptable : un décalage temporaire est toléré</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certaines données doivent-elles rester exactes à tout instant ?</div>
+              <div class="options">
+                <label><input name="q_2_3_1_2" type="radio" value="Oui, plusieurs données critiques"> <span>Oui, plusieurs données critiques</span></label>
+                <label><input name="q_2_3_1_2" type="radio" value="Seulement certains états sensibles"> <span>Seulement certains états sensibles</span></label>
+                <label><input name="q_2_3_1_2" type="radio" value="Non, des décalages temporaires sont acceptables"> <span>Non, des décalages temporaires sont acceptables</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.3.2</span>Organisation temporelle des événements</h4>
+            <div class="question">
+              <div class="qtext">Le modèle suppose-t-il une évolution simultanée ou ordonnée des agents ?</div>
+              <div class="options">
+                <label><input name="q_2_3_2_1" type="radio" value="Oui, évolution simultanée requise"> <span>Oui, évolution simultanée requise</span></label>
+                <label><input name="q_2_3_2_1" type="radio" value="Un ordre logique doit être préservé sans simultanéité stricte"> <span>Un ordre logique doit être préservé sans simultanéité stricte</span></label>
+                <label><input name="q_2_3_2_1" type="radio" value="Non, les agents peuvent évoluer indépendamment"> <span>Non, les agents peuvent évoluer indépendamment</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certains événements doivent-ils être coordonnés à l’échelle globale ?</div>
+              <div class="options">
+                <label><input name="q_2_3_2_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_2_3_2_2" type="radio" value="Seulement lors de certaines étapes"> <span>Seulement lors de certaines étapes</span></label>
+                <label><input name="q_2_3_2_2" type="radio" value="Non, une coordination locale suffit"> <span>Non, une coordination locale suffit</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Le moment ou l’ordre des actions influence-t-il le résultat du modèle ?</div>
+              <div class="options">
+                <label><input name="q_2_3_2_3" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_2_3_2_3" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_2_3_2_3" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_2_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.3.3</span>Tolérance aux décalages temporels</h4>
+            <div class="question">
+              <div class="qtext">Le modèle tolère-t-il que certaines parties évoluent avec un léger décalage temporel ?</div>
+              <div class="options">
+                <label><input name="q_2_3_3_1" type="radio" value="Très peu : un faible décalage peut modifier la validité ou le comportement"> <span>Très peu : un faible décalage peut modifier la validité ou le comportement</span></label>
+                <label><input name="q_2_3_3_1" type="radio" value="Modérément : un décalage limité est acceptable sous certaines conditions"> <span>Modérément : un décalage limité est acceptable sous certaines conditions</span></label>
+                <label><input name="q_2_3_3_1" type="radio" value="Oui : des décalages sont largement tolérés"> <span>Oui : des décalages sont largement tolérés</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">La tolérance à ces décalages dépend-elle du type d’interaction ou de l’état du modèle ?</div>
+              <div class="options">
+                <label><input name="q_2_3_3_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_2_3_3_2" type="radio" value="Non"> <span>Non</span></label>
+                <label><input name="q_2_3_3_2" type="radio" value="Non déterminé"> <span>Non déterminé</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_3_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h3><span class="badge">2.4</span>Flux d’information</h3>
+          <div class="item">
+            <h4><span class="badge">2.4.1</span>Portée des échanges d’information</h4>
+            <div class="question">
+              <div class="qtext">Quelle est la portée typique des échanges d’information ?</div>
+              <div class="options">
+                <label><input name="q_2_4_1_1" type="radio" value="Principalement locale"> <span>Principalement locale</span></label>
+                <label><input name="q_2_4_1_1" type="radio" value="Principalement globale"> <span>Principalement globale</span></label>
+                <label><input name="q_2_4_1_1" type="radio" value="Mixte ou variable selon le contexte"> <span>Mixte ou variable selon le contexte</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_4_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.4.2</span>Organisation des flux d’information</h4>
+            <div class="question">
+              <div class="qtext">Quelle organisation des flux d’information domine ?</div>
+              <div class="options">
+                <label><input name="q_2_4_2_1" type="radio" value="Un-à-un"> <span>Un-à-un</span></label>
+                <label><input name="q_2_4_2_1" type="radio" value="Un-à-plusieurs localement"> <span>Un-à-plusieurs localement</span></label>
+                <label><input name="q_2_4_2_1" type="radio" value="Un-à-tous / diffusion globale"> <span>Un-à-tous / diffusion globale</span></label>
+                <label><input name="q_2_4_2_1" type="radio" value="Plusieurs-à-plusieurs"> <span>Plusieurs-à-plusieurs</span></label>
+                <label><input name="q_2_4_2_1" type="radio" value="Hiérarchique ou arborescente"> <span>Hiérarchique ou arborescente</span></label>
+                <label><input name="q_2_4_2_1" type="radio" value="Variable ou adaptative"> <span>Variable ou adaptative</span></label>
+                <label><input name="q_2_4_2_1" type="radio" value="Interaction via un espace partagé"> <span>Interaction via un espace partagé</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_4_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">2.4.3</span>Intensité globale des flux d’information</h4>
+            <div class="question">
+              <div class="qtext">L’intensité des flux d’information est-elle homogène au cours de la simulation ?</div>
+              <div class="options">
+                <label><input name="q_2_4_3_1" type="radio" value="Oui, relativement stable"> <span>Oui, relativement stable</span></label>
+                <label><input name="q_2_4_3_1" type="radio" value="Non, elle varie selon les phases ou événements"> <span>Non, elle varie selon les phases ou événements</span></label>
+                <label><input name="q_2_4_3_1" type="radio" value="Non, elle est fortement irrégulière"> <span>Non, elle est fortement irrégulière</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_4_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Certaines situations produisent-elles une concentration importante des échanges ?</div>
+              <div class="options">
+                <label><input name="q_2_4_3_2" type="radio" value="Oui, fréquemment"> <span>Oui, fréquemment</span></label>
+                <label><input name="q_2_4_3_2" type="radio" value="Oui, occasionnellement"> <span>Oui, occasionnellement</span></label>
+                <label><input name="q_2_4_3_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_2_4_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="level l3">
+        <h2>Niveau 3 : Dynamique et évolution comportementale</h2>
+        <div class="section">
+          <h3><span class="badge">3.1</span>Dynamique individuelle des agents</h3>
+          <div class="item">
+            <h4><span class="badge">3.1.1</span>Dépendance à l’ordre des événements et causalité</h4>
+            <div class="question">
+              <div class="qtext">Le comportement courant d’un agent dépend-il de son historique ou d’une séquence d’actions antérieures ?</div>
+              <div class="options">
+                <label><input name="q_3_1_1_1" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_3_1_1_1" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_3_1_1_1" type="radio" value="Non, il dépend principalement de l’état courant"> <span>Non, il dépend principalement de l’état courant</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">L’ordre dans lequel un agent reçoit ou observe des informations influence-t-il ses décisions ?</div>
+              <div class="options">
+                <label><input name="q_3_1_1_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_3_1_1_2" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_3_1_1_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Une même information peut-elle produire un effet différent selon le moment où elle est disponible ?</div>
+              <div class="options">
+                <label><input name="q_3_1_1_3" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_3_1_1_3" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_3_1_1_3" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_1_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">3.1.2</span>Évolution de l’activité individuelle</h4>
+            <div class="question">
+              <div class="qtext">L’activité ou la charge associée aux agents varie-t-elle significativement au cours de la simulation ?</div>
+              <div class="options">
+                <label><input name="q_3_1_2_1" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_3_1_2_1" type="radio" value="Modérément"> <span>Modérément</span></label>
+                <label><input name="q_3_1_2_1" type="radio" value="Non, relativement stable"> <span>Non, relativement stable</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les variations importantes d’activité sont-elles prévisibles ?</div>
+              <div class="options">
+                <label><input name="q_3_1_2_2" type="radio" value="Oui, liées à des phases ou événements connus"> <span>Oui, liées à des phases ou événements connus</span></label>
+                <label><input name="q_3_1_2_2" type="radio" value="Non, principalement contextuelles ou stochastiques"> <span>Non, principalement contextuelles ou stochastiques</span></label>
+                <label><input name="q_3_1_2_2" type="radio" value="Les deux selon les agents ou les phases"> <span>Les deux selon les agents ou les phases</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">3.1.3</span>Adaptation individuelle</h4>
+            <div class="question">
+              <div class="qtext">Les règles de comportement ou les paramètres décisionnels des agents évoluent-ils au cours de la simulation ?</div>
+              <div class="options">
+                <label><input name="q_3_1_3_1" type="radio" value="Oui, de manière importante"> <span>Oui, de manière importante</span></label>
+                <label><input name="q_3_1_3_1" type="radio" value="Partiellement ou pour certains agents"> <span>Partiellement ou pour certains agents</span></label>
+                <label><input name="q_3_1_3_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les agents adaptent-ils leur comportement à des changements de leur environnement, de leur état ou des interactions ?</div>
+              <div class="options">
+                <label><input name="q_3_1_3_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_3_1_3_2" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_3_1_3_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_1_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <h3><span class="badge">3.2</span>Émergence et comportements collectifs</h3>
+          <div class="item">
+            <h4><span class="badge">3.2.1</span>Émergence et coordination implicite</h4>
+            <div class="question">
+              <div class="qtext">Le modèle fait-il apparaître des comportements collectifs qui ne sont pas directement spécifiés au niveau individuel ?</div>
+              <div class="options">
+                <label><input name="q_3_2_1_1" type="radio" value="Oui, ils constituent un aspect central du modèle"> <span>Oui, ils constituent un aspect central du modèle</span></label>
+                <label><input name="q_3_2_1_1" type="radio" value="Oui, mais ils restent secondaires"> <span>Oui, mais ils restent secondaires</span></label>
+                <label><input name="q_3_2_1_1" type="radio" value="Non ou très peu"> <span>Non ou très peu</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_1_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Ces comportements collectifs résultent-ils principalement de règles locales et d’interactions entre agents, sans coordination centrale ?</div>
+              <div class="options">
+                <label><input name="q_3_2_1_2" type="radio" value="Oui, principalement"> <span>Oui, principalement</span></label>
+                <label><input name="q_3_2_1_2" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_3_2_1_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_1_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">3.2.2</span>Auto-organisation via environnement partagé</h4>
+            <div class="question">
+              <div class="qtext">Les agents se coordonnent-ils indirectement par l’intermédiaire d’un environnement partagé ?</div>
+              <div class="options">
+                <label><input name="q_3_2_2_1" type="radio" value="Oui, ce mécanisme est central"> <span>Oui, ce mécanisme est central</span></label>
+                <label><input name="q_3_2_2_1" type="radio" value="Oui, mais seulement pour une partie de la coordination"> <span>Oui, mais seulement pour une partie de la coordination</span></label>
+                <label><input name="q_3_2_2_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_2_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les agents modifient-ils l’environnement puis utilisent-ils les informations qui y sont présentes pour adapter leur comportement ?</div>
+              <div class="options">
+                <label><input name="q_3_2_2_2" type="radio" value="Oui, régulièrement"> <span>Oui, régulièrement</span></label>
+                <label><input name="q_3_2_2_2" type="radio" value="Oui, dans certaines situations"> <span>Oui, dans certaines situations</span></label>
+                <label><input name="q_3_2_2_2" type="radio" value="Non"> <span>Non</span></label>
+                <label><input name="q_3_2_2_2" type="radio" value="Non applicable : l’environnement ne porte pas d’information partagée"> <span>Non applicable : l’environnement ne porte pas d’information partagée</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_2_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+          <div class="item">
+            <h4><span class="badge">3.2.3</span>Dépendance à l’information partagée</h4>
+            <div class="question">
+              <div class="qtext">Les comportements collectifs dépendent-ils de la disponibilité d’informations partagées entre les agents ?</div>
+              <div class="options">
+                <label><input name="q_3_2_3_1" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_3_2_3_1" type="radio" value="Partiellement"> <span>Partiellement</span></label>
+                <label><input name="q_3_2_3_1" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_3_1" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Les comportements collectifs restent-ils similaires lorsque les agents disposent seulement d’informations locales ou partielles ?</div>
+              <div class="options">
+                <label><input name="q_3_2_3_2" type="radio" value="Oui"> <span>Oui</span></label>
+                <label><input name="q_3_2_3_2" type="radio" value="Partiellement ou selon le contexte"> <span>Partiellement ou selon le contexte</span></label>
+                <label><input name="q_3_2_3_2" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_3_2" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+            <div class="question">
+              <div class="qtext">Un décalage dans la disponibilité des informations partagées peut-il modifier les comportements collectifs observés ?</div>
+              <div class="options">
+                <label><input name="q_3_2_3_3" type="radio" value="Oui, fortement"> <span>Oui, fortement</span></label>
+                <label><input name="q_3_2_3_3" type="radio" value="Partiellement ou selon le décalage"> <span>Partiellement ou selon le décalage</span></label>
+                <label><input name="q_3_2_3_3" type="radio" value="Non"> <span>Non</span></label>
+              </div>
+              <details>
+                <summary>Ajouter une précision</summary>
+                <textarea name="note_q_3_2_3_3" placeholder="Commentaire libre…"></textarea>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="toolbar">
+        <button class="primary" onclick="window.print()">Imprimer / exporter en PDF</button>
+        <button onclick="saveJSON()">Exporter les réponses (JSON)</button>
+        <button onclick="resetForm()">Réinitialiser</button>
+      </div>
+    </main>
+    <script>
+      function collect(){const out={};document.querySelectorAll('.question').forEach((q,i)=>{const t=q.querySelector('.qtext').innerText;const r=q.querySelector('input[type=radio]:checked');const n=q.querySelector('textarea');out[t]={reponse:r?r.value:null,precision:n&&n.value?n.value:null};});return out}
+      function saveJSON(){const blob=new Blob([JSON.stringify(collect(),null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='profil_pdmas.json';a.click();URL.revokeObjectURL(a.href)}
+      function resetForm(){if(confirm('Réinitialiser toutes les réponses ?')){document.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false);document.querySelectorAll('textarea').forEach(x=>x.value='')}}
+    </script>
+  </body>
+</html>
